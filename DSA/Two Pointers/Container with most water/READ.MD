@@ -22,7 +22,7 @@ Notice that you may not slant the container.
 5. Repeat until the two pointers meet.
 
 ## Complexity
-Time: O(n)
-Space: O(1) 
+- Time: O(n)
+- Space: O(1) 
 
 
