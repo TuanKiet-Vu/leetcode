@@ -25,8 +25,12 @@ You must implement a solution with O(1) time complexity for each function.
 - In the pop function: Update the min when pop the encoded number
 - In top function, if the top value is encoded, return curMin; otherwise, return the top value.
 ## Complexity
-- Time: O(n)
-- Space: O(1) 
+- push(): O(1)
+- pop(): O(1)
+- top(): O(1)
+- getMin(): O(1)
+
+- Space: O(n) 
 
 
 
