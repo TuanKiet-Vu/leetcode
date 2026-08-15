@@ -1,9 +1,9 @@
-# Minimum Window Substring
+# Sliding Window Maximum
 
 ## Problem
-Given two strings s and t of lengths m and n respectively, return the minimum window substring of s such that every character in t (including duplicates) is included in the window. If there is no such substring, return the empty string "".
+You are given an array of integers nums, there is a sliding window of size k which is moving from the very left of the array to the very right. You can only see the k numbers in the window. Each time the sliding window moves right by one position.
 
-The testcases will be generated such that the answer is unique.
+Return the max sliding window.
 
 Example 1:
 
@@ -15,22 +15,22 @@ Explanation: The minimum window substring "BANC" includes 'A', 'B', and 'C' from
 - Sliding window
 
 ## Idea
-### 1. Count how many distinctly required characters in t
-- Use an array mp to store the frequency of each character in t
-- Required represents the number of distinct characters that need to be included
-### 2. Expand the window
-- Move the pointer (right) from left to right and use sFreq to count the frequency of each character in s
-- If the frequency of the current character reach its target (mp), increment formed
-- When formed = required, the current window includes all the required characters
-### 3. Shrink the window
-- When all characters are contained in the window, shink it to remove unnessary characters
-- Before moving the pointer left, update the minimum size of the window with (start) as first posion of the string and (minlen) as the length of string
-- If the window is invalid after removing a character (on the left side), decrement formed
-, then keep expanding
+### Deque structure
+- Use a deque to store the indices of the potientially maximum value in the window
+- We arrange the indices in the deque so that their corresponding values are in decreasing order
+- The front index always points to the maximum value of the current window
+### Remove from the back
+- Remove the index at the deque's back while nums[dq.back] <= nums[i], as they can not become the maximum value of the window compared a higher and newer value (nums[i])
+### Remove from the front
+- The front index is outside of the window and become unsuable, so we remove it from the deque
+- The front index  <= i-k is outside the window
+### Result
+- Reaching i>=k means a completed window has been formed
+- Then we alwways add nums[dq.front()] to the result
 
 ## Complexity
-- Time: O(n+m)
-- Space: O(1) 
+- Time: O(n)
+- Space: O(k) 
 
 
 
