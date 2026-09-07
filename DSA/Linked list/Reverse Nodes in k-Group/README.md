@@ -14,20 +14,21 @@ You may not alter the values in the list's nodes, only nodes themselves may be c
 Linked list
 
 ## Idea
-### The process of adding two intergers
-- Traverse these two list until reaching the end of any of them
-- Add two numbers that cur1 and cur1 point to
-- If there is a carry, add 1 to the sum
-- If that sum >= 10, set carry = 1 and take ones digit of the sum
-- Create a node the contain the sum and link it to the answer list
-- Move both cur1 and cur2 by one step
-### When one list is longer
-- If not reaching the end of list1 or list2, repeat the above process to that list
-- Add the carry to the nex value of the list
-- If the result is 10 or greater, set carry = 1 and take the ones digit.
-- Move the pointer one step forward after each node.
-### After process both lists
-- If there is still a carry, create a node containing 1 and link it
+- Size variable stores the number of the nodes. If that size is smaller than k, return NULL
+- To keep track of the head of the linklist after modifying, we use dummy node linking to the head
+- Count variable tracks the number of nodes processed in the current group
+- Group stores the number of the groups that are albe to be reverse
+- Countgroup tracks how many groups have been reverse
+- When group = countgroup, we stop reversing node as the number of the remaining nodes is not enough to form a group
+- TailPrev points to the tail of the previously reversed group, while tailcur points to head of the current group which becomes the tail after reversal
+- The pointer cur points to the current node that we are working on while prev points to the node behind the current node
+
+### Modifying process
+- Traverse the linklist and reverse the nodes in the group
+- When reach the head of a group (count = 0), set tailPrev pointing to previous group's tail and tailCur pointing to the head of the current group and prev = NULL
+- When completing reverse a group (count = k), link tailPrev to the current node (the head of a new group) and reset count to 0 and increment group by 1
+- If the number of the remaining nodes is smaller than k, link the previous group to these nodes without reversing them and break the lop
+- Then return dummy.next
 ## Complexity
 
 * Time: O(n)
