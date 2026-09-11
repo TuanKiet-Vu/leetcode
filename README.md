@@ -9,3 +9,4 @@ Each topic contains:
 
 # Language
 C++
+Python
