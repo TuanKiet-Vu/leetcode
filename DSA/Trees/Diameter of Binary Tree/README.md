@@ -14,7 +14,18 @@ The length of a path between two nodes is represented by the number of edges bet
 Trees
 
 ## Idea
-- Calculate the tree's height
+- If the root is none, we return 0
+- Use recursion to perform the below process
+- Set maxLeft to the height of left side, similarly to right side
+- return the higher side plus the current node
+### Method of finding the height:
+- Recursively call the function to figure out the height of the left and right side
+- Plus 1 to the higher side
+
+### Main idea:
+- Use the same method as finding out the height of the tree
+- But at each node, we need to calculate the diameter by right + left
+- Then set it to diameter if it is longer than the previous one
 
 ## Complexity
 
