@@ -13,9 +13,10 @@ Trees
 
 ## Idea
 - Use recursion to traverse all the nodes in the tree to count the number of good nodes
-- Initialize the max value is root.val
-- If the current node is higher than max value, update the max value to current node and set count to 1
+- Initialize a function DFS to carry out the below process
+- If the current node is higher than max value, update the max value to current node and set count = 1 else count = 0
 - Then return count plus the number of good nodes on both side
+- Call that function and pass these values in to it which are root and rool.val as a max value
 
 ## Complexity
 
