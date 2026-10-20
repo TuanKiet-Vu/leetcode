@@ -1,4 +1,4 @@
-# Kth Largest Element In An Array
+# Kth Largest Element In a stream
 
 ## Pattern
 - Priority queue/Heap
