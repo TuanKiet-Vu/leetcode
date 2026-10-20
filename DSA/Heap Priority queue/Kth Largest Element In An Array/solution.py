@@ -1,25 +1,16 @@
-#solution
 import heapq
-class KthLargest(object):
 
-    def __init__(self, k, nums):
-        self.k = k
-        self.minHeap = heapq.nlargest(k,nums)
-        heapq.heapify(self.minHeap)
-
-    def add(self, val):
-        heap = self.minHeap
-        heapq.heappush(heap,val)
-
-        if len(heap) > self.k:
-            heapq.heappop(heap)
-
+class Solution(object):
+    def findKthLargest(self, nums, k):
+        if len(nums) == 0:
+            return 0
+        heap = []
+        for x in nums:
+            if len(heap) == k:
+                heapq.heappushpop(heap, x)
+            else:
+                heapq.heappush(heap, x)
+        
+     
         return heap[0]
-
         
-        
-
-
-# Your KthLargest object will be instantiated and called as such:
-# obj = KthLargest(k, nums)
-# param_1 = obj.add(val)
