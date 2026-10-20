@@ -4,13 +4,11 @@
 - Priority queue/Heap
 
 ## Idea
-### Initial function
-- Create a list storing k largest values in nums
-- Transform this list into min heap with the most k elements
-### Add function
-- Add new value to the heap
-- If heap's size exceeds k, delete its smallest value and restructure the heap
-- Return the root of heap which is the k largest value of nums
+- Initialize a min heap to store k largest numbers
+- Traverse each element in the array nums
+- If len(heap) == 2, we push the current value into the heap and then pop the smallest value to keep the heap's size always be two
+- Otherwise, only push the value to heap
+- Return heap[0] which is the k largest number
 ## Complexity
-- Time: init() O(nlogk + k), add() O(logk)
-- Space: init() O(k), add() O(1)
+- Time: O(nlogk)
+- Space: O(k)
